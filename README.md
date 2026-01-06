@@ -5,50 +5,91 @@ This project presents a mobile manipulation robot designed to perform complex 3D
 ![WhatsApp Image 2024-08-10 at 17 37 42_e13a78ed](https://github.com/user-attachments/assets/17fa35be-03e4-4e28-ba89-d86e4b89e9fb)
 ![WhatsApp Image 2024-08-10 at 17 37 41_aacf836a](https://github.com/user-attachments/assets/6e474fe2-f1a0-4f4f-b8db-66bdf4f329f1)
 
-
 🌟 Key Features
 
-6-DOF Robotic Arm: Provides high dexterity for complex grasping, precise positioning, and manipulation tasks in 3D space.
-Mecanum Drive Base: 4-wheel omnidirectional movement allows translation and rotation simultaneously for precise navigation.
-Inverse Kinematics (IK): Algorithmic control computes joint angles to move the gripper to desired coordinates: (x, y, z, roll, pitch, yaw).
-PID Control: Closed-loop feedback ensures smooth, jitter-free motion of motors and servos.
-Digital Twin Simulation: Full system modeled in CoppeliaSim (V-REP) for testing, tuning, and validation before physical deployment.
+6-DOF Robotic Arm
+High dexterity for grasping, positioning, and manipulation tasks in 3D space.
+
+Mecanum Drive Base
+4-wheel omnidirectional movement allows simultaneous translation and rotation.
+
+Inverse Kinematics (IK)
+Algorithmic control computes joint angles for desired coordinates: (x, y, z, roll, pitch, yaw).
+
+PID Control
+Closed-loop feedback ensures smooth, jitter-free motion of motors and servos.
+
+Digital Twin Simulation
+Full system modeled in CoppeliaSim (V-REP) for testing, tuning, and validation before hardware deployment.
 
 🛠 Tech Stack
+
 Hardware: Arduino (Mega/Uno), MG996R/SG90 Servos, L298N/L293D Motor Drivers, Mecanum Wheels
-Simulation: CoppeliaSim (V-REP) for virtual prototyping, workspace analysis, and PID tuning
-Programming Languages: C++ (Arduino Sketches),Lua (CoppeliaSim scripting)
-Concepts Implemented: Inverse Kinematics, PID Control, PWM Signal Processing, Mecanum Wheel Kinematics
+
+Simulation: CoppeliaSim (V-REP)
+
+Languages: C++ (Arduino Sketches), Lua (CoppeliaSim scripting)
+
+Concepts: Inverse Kinematics, PID Control, PWM Signal Processing, Mecanum Wheel Kinematics
 
 📐 System Architecture
-1. Kinematics & Control:
-The arm uses Inverse Kinematics to calculate joint angles for a desired end-effector position: (x,y,z,roll,pitch,yaw)
+1. Kinematics & Control
 
-3. Mobile Base: 
+The arm uses Inverse Kinematics to calculate joint angles for a desired end-effector position:
+
+θ1,θ2,...,θ6=f−1(x,y,z,roll,pitch,yaw)
+θ
+1
+	​
+
+,θ
+2
+	​
+
+,...,θ
+6
+	​
+
+=f
+−1
+(x,y,z,roll,pitch,yaw)
+2. Mobile Base
+
 The 4-wheel Mecanum setup enables omnidirectional movement:
-Forward/Backward: All wheels rotate in the same direction.
-Strafe (Lateral): Wheels rotate in opposing "X" patterns.
-Rotation (Yaw): Wheels rotate to allow rotation in place.
 
-4. Simulation (CoppeliaSim)
-Before assembling the physical robot, the system was tested in simulation to:
+Forward/Backward: All wheels rotate in the same direction
+
+Strafe (Lateral): Wheels rotate in opposing "X" patterns
+
+Rotation (Yaw): Wheels rotate to turn in place
+
+3. Simulation (CoppeliaSim)
+
+Before assembling the physical robot, the system was tested virtually to:
+
 Verify workspace reach and obstacle handling
+
 Tune PID constants safely
+
 Validate IK solver accuracy
 
 📁 Repository Structure
 ├── Arduino/           # Arduino sketches for arm and base control
 ├── CoppeliaSim/       # CoppeliaSim scenes and Lua scripts
-├── Docs/              # Documentation, schematics, and diagrams
-├── Config/            # PID constants, motor parameters, and calibration files
+├── Docs/              # Documentation, schematics, diagrams
+├── Config/            # PID constants, motor parameters, calibration files
 ├── README.md
 └── LICENSE
 
 🚀 Getting Started
-Requirements:
+Requirements
+
 Arduino IDE
+
 CoppeliaSim (V-REP)
+
 MG996R/SG90 Servos
+
 L298N/L293D Motor Drivers
 
 Mecanum Wheels
